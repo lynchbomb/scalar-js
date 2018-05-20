@@ -31,7 +31,7 @@ module.exports = function () {
         module: 'es2015',
         moduleResolution: 'node',
         paths: {
-          scalarjs: ['src/index.ts']
+          "scalar-js": ['src/index.ts']
         },
         strictNullChecks: true,
         target: 'es2015'
@@ -43,7 +43,7 @@ module.exports = function () {
   const scalarjs = new Rollup(compiled, {
     rollup: {
       entry: 'src/index.js',
-      dest: 'es6/scalarjs.js',
+      dest: 'es6/scalar-js.js',
       format: 'es',
       sourceMap: true,
       plugins: [
@@ -54,10 +54,10 @@ module.exports = function () {
 
   const umdTree = new Rollup(scalarjs, {
     rollup: {
-      entry: 'es6/scalarjs.js',
-      dest: 'scalarjs.js',
+      entry: 'es6/scalar-js.js',
+      dest: 'scalar-js.js',
       format: 'umd',
-      moduleName: 'scalarjs',
+      moduleName: 'scalar-js',
       exports: 'named',
       sourceMap: true,
       plugins: [
@@ -79,12 +79,12 @@ module.exports = function () {
         ],
         sourceMap: true,
         targets: [{
-          dest: 'named-amd/scalarjs.js',
+          dest: 'named-amd/scalar-js.js',
           exports: 'named',
           format: 'amd',
-          moduleId: 'scalarjs',
+          moduleId: 'scalar-js',
         }, {
-          dest: 'scalarjs-amd.js',
+          dest: 'scalar-js-amd.js',
           format: 'cjs',
         }]
       }
@@ -93,7 +93,7 @@ module.exports = function () {
       annotation: 'named-amd/tests.js',
       rollup: {
         entry: 'tests/index.js',
-        external: ['scalarjs'],
+        external: ['scalar-js'],
         plugins: [
           loadWithInlineMap(),
           buble()
@@ -102,7 +102,7 @@ module.exports = function () {
         targets: [{
           dest: 'named-amd/tests.js',
           format: 'amd',
-          moduleId: 'scalarjs'
+          moduleId: 'scalar-js'
         }]
       }
     }),

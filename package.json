@@ -34,10 +34,10 @@
     "serve": "ember serve",
     "lint": "tslint --project tsconfig.json"
   },
-  "name": "scalarjs",
-  "version": "0.0.2",
+  "name": "scalar-js",
+  "version": "0.0.3",
   "description": "2D Vector Library",
-  "main": "dist/scalarjs.js",
+  "main": "dist/scalar-js.js",
   "author": "Marc Lynch <lynchmarc2@gmail.com>",
   "license": "MIT"
 }
