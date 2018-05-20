@@ -35,10 +35,9 @@
     "lint": "tslint --project tsconfig.json"
   },
   "name": "scalar-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "2D Vector Library",
-  "main": "dist/scalar-js.js",
-  "typings": "dist/es6/scalar-js.d.ts",
+  "main": "dist/scalar",
   "module": "dist/es6/scalar-js.js",
   "jsnext:main": "dist/es6/scalar-js.js",
   "author": "Marc Lynch <lynchmarc2@gmail.com>",
