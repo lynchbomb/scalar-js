@@ -22,23 +22,7 @@ module.exports = function () {
     })
   ]);
 
-  const compiled = typescript(src, {
-    tsconfig: {
-      compilerOptions: {
-        baseUrl: '.',
-        inlineSourceMap: true,
-        inlineSources: true,
-        module: 'es2015',
-        moduleResolution: 'node',
-        paths: {
-          "scalar-js": ['src/index.ts']
-        },
-        strictNullChecks: true,
-        target: 'es2015'
-      },
-      files: ['qunit/index.d.ts', 'src/index.ts', 'tests/index.ts']
-    }
-  });
+  const compiled = typescript(src);
 
   const scalarjs = new Rollup(compiled, {
     rollup: {

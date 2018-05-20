@@ -3,11 +3,11 @@
     "broccoli-funnel": "^1.1.0",
     "broccoli-merge-trees": "^1.2.1",
     "broccoli-rollup": "^1.0.3",
-    "broccoli-typescript-compiler": "^1.0.1",
+    "broccoli-typescript-compiler": "^2.3.0",
     "ember-cli": "^2.12.0-beta.2",
     "rollup-plugin-buble": "^0.15.0",
     "tslint": "^4.5.1",
-    "typescript": "^2.1.6"
+    "typescript": "~2.8.3"
   },
   "devDependencies": {
     "@types/qunit": "^2.0.31",
@@ -35,9 +35,12 @@
     "lint": "tslint --project tsconfig.json"
   },
   "name": "scalar-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "2D Vector Library",
   "main": "dist/scalar-js.js",
+  "typings": "dist/es6/scalar-js.d.ts",
+  "module": "dist/es6/scalar-js.js",
+  "jsnext:main": "dist/es6/scalar-js.js",
   "author": "Marc Lynch <lynchmarc2@gmail.com>",
   "license": "MIT"
 }
