@@ -1,0 +1,48 @@
+import {
+  applyForce,
+  applyKinetics,
+  createRandomVector,
+  createVectorR2,
+  createVectorR3,
+  generateMatrix,
+  generateRandomToken,
+  getCoords,
+  getDegrees,
+  getHeadingDegrees,
+  getHeadingRadians,
+  getPrevCoords,
+  getRadians,
+  getRandomColor,
+  getUnitVectorR2,
+  isOutOfBounds,
+  netForce,
+  randomIntBetween,
+  resetCoords,
+  strCoordsSet,
+} from './utils';
+
+import Vector from './vector';
+
+export {
+  applyForce,
+  applyKinetics,
+  createRandomVector,
+  createVectorR2,
+  createVectorR3,
+  generateMatrix,
+  generateRandomToken,
+  getCoords,
+  getDegrees,
+  getHeadingDegrees,
+  getHeadingRadians,
+  getPrevCoords,
+  getRadians,
+  getRandomColor,
+  getUnitVectorR2,
+  isOutOfBounds,
+  netForce,
+  randomIntBetween,
+  resetCoords,
+  strCoordsSet,
+  Vector
+};
