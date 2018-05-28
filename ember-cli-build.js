@@ -9,108 +9,35 @@ const fs = require('fs');
 const SOURCE_MAPPING_DATA_URL = '//# sourceMap' + 'pingURL=data:application/json;base64,';
 
 module.exports = function () {
-  const src = new MergeTrees([
-    new Funnel(path.dirname(require.resolve('@types/qunit/package')), {
-      destDir: 'qunit',
-      include: [ 'index.d.ts' ]
-    }),
-    new Funnel(__dirname + '/src', {
-      destDir: 'src'
-    }),
-    new Funnel(__dirname + '/tests', {
-      destDir: 'tests'
-    })
-  ]);
+  const src = new Funnel(__dirname + '/src', {
+    destDir: 'src'
+  });
 
-  const compiled = typescript(src);
+  const compiled = typescript(src, {
+    tsconfig: {
+      compilerOptions: {
+        sourceMap: true,
+        declaration: true
+      }
+    }
+  });
 
   const scalarjs = new Rollup(compiled, {
     rollup: {
-      entry: 'src/index.js',
-      dest: 'es6/scalar-js.js',
-      format: 'es',
-      sourceMap: true,
-      plugins: [
+      input: 'src/index.js',
+      output: {
+        sourcemap: true,
+        format: 'es',
+        file: 'es6/scalar-js.js'
+      },
+    plugins: [
         loadWithInlineMap()
       ]
     }
   });
 
-  const umdTree = new Rollup(scalarjs, {
-    rollup: {
-      entry: 'es6/scalar-js.js',
-      dest: 'scalar-js.js',
-      format: 'umd',
-      moduleName: 'scalar-js',
-      exports: 'named',
-      sourceMap: true,
-      plugins: [
-        loadWithInlineMap()
-      ]
-    }
-  });
-
-
-  return new MergeTrees([
-    scalarjs,
-    umdTree,
-    new Rollup(compiled, {
-      rollup: {
-        entry: 'src/index.js',
-        plugins: [
-          loadWithInlineMap(),
-          buble()
-        ],
-        sourceMap: true,
-        targets: [{
-          dest: 'named-amd/scalar-js.js',
-          exports: 'named',
-          format: 'amd',
-          moduleId: 'scalar-js',
-        }, {
-          dest: 'scalar-js-amd.js',
-          format: 'cjs',
-        }]
-      }
-    }),
-    new Rollup(compiled, {
-      annotation: 'named-amd/tests.js',
-      rollup: {
-        entry: 'tests/index.js',
-        external: ['scalar-js'],
-        plugins: [
-          loadWithInlineMap(),
-          buble()
-        ],
-        sourceMap: true,
-        targets: [{
-          dest: 'named-amd/tests.js',
-          format: 'amd',
-          moduleId: 'scalar-js'
-        }]
-      }
-    }),
-    new Funnel(path.dirname(require.resolve('qunitjs')), {
-      annotation: 'tests/qunit.{js,css}',
-      destDir: 'tests',
-      files: ['qunit.css', 'qunit.js']
-    }),
-    new Funnel(path.dirname(require.resolve('loader.js')), {
-      annotation: 'tests/loader.js',
-      destDir: 'tests',
-      files: ['loader.js']
-    }),
-    new Funnel(__dirname + '/tests', {
-      destDir: 'tests',
-      files: ['index.html']
-    }),
-    new Funnel(__dirname + '/src', {
-      files: ['index.html']
-    })
-  ], {
-    annotation: 'dist'
-  });
-};
+  return scalarjs;
+}
 
 function loadWithInlineMap() {
   return {
