@@ -10,14 +10,18 @@ const SOURCE_MAPPING_DATA_URL = '//# sourceMap' + 'pingURL=data:application/json
 
 module.exports = function () {
   const src = new Funnel(__dirname + '/src', {
-    destDir: 'src'
+      destDir: 'src'
   });
 
   const compiled = typescript(src, {
     tsconfig: {
       compilerOptions: {
-        sourceMap: true,
-        declaration: true
+        "declaration": true,
+        "isolatedModules": false,
+        "module": "es2015",
+        "target": "es6",
+        "sourceMap": true,
+        "moduleResolution": "node"
       }
     }
   });
@@ -36,7 +40,46 @@ module.exports = function () {
     }
   });
 
-  return scalarjs;
+  const scalarjs = new Rollup(compiled, {
+    rollup: {
+      input: 'src/index.js',
+      output: {
+        sourcemap: true,
+        format: 'es',
+        file: 'es6/scalar-js.js'
+      },
+    plugins: [
+        loadWithInlineMap()
+      ]
+    }
+  });
+
+  return new MergeTrees([
+    scalarjs,
+    umdTree,
+    compiled,
+    new Rollup(compiled, {
+      rollup: {
+        input: 'src/index.js',
+        plugins: [
+          loadWithInlineMap(),
+          buble()
+        ],
+        sourceMap: true,
+        targets: [{
+          dest: 'named-amd/scalar-js.js',
+          exports: 'named',
+          format: 'amd',
+          moduleId: 'scalar-js',
+        }, {
+          dest: 'scalar-js-amd.js',
+          format: 'cjs',
+        }]
+      }
+    }),
+  ], {
+    annotation: 'dist'
+  });
 }
 
 function loadWithInlineMap() {
