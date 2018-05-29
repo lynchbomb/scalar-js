@@ -10,7 +10,7 @@ export default class Vector {
   constructor(vector: ICoords | null = null, dimensions: number = 2) {
     if (!vector) {
       this.val = dimensions < 3 ? this.createVectorR2() : this.createVectorR3();
-    }else {
+    } else {
       this.val = vector;
     }
   }

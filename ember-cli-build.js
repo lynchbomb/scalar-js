@@ -40,23 +40,8 @@ module.exports = function () {
     }
   });
 
-  const scalarjs = new Rollup(compiled, {
-    rollup: {
-      input: 'src/index.js',
-      output: {
-        sourcemap: true,
-        format: 'es',
-        file: 'es6/scalar-js.js'
-      },
-    plugins: [
-        loadWithInlineMap()
-      ]
-    }
-  });
-
   return new MergeTrees([
     scalarjs,
-    umdTree,
     compiled,
     new Rollup(compiled, {
       rollup: {

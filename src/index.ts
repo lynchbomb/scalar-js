@@ -8,6 +8,7 @@ import {
   generateRandomToken,
   getCoords,
   getDegrees,
+  getDistanceBetweenR2Vectors,
   getHeadingDegrees,
   getHeadingRadians,
   getPrevCoords,
@@ -21,6 +22,16 @@ import {
   strCoordsSet,
 } from './utils';
 
+import {
+  ICoords,
+  IClamped,
+  IBoundary
+} from './interfaces/i-coords';
+
+import {
+  IVector
+} from './interfaces/i-vector';
+
 import Vector from './vector';
 
 export {
@@ -33,6 +44,7 @@ export {
   generateRandomToken,
   getCoords,
   getDegrees,
+  getDistanceBetweenR2Vectors,
   getHeadingDegrees,
   getHeadingRadians,
   getPrevCoords,
@@ -40,6 +52,10 @@ export {
   getRandomColor,
   getUnitVectorR2,
   isOutOfBounds,
+  ICoords,
+  IClamped,
+  IBoundary,
+  IVector,
   netForce,
   randomIntBetween,
   resetCoords,
