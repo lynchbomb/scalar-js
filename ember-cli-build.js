@@ -1,7 +1,6 @@
 const MergeTrees = require('broccoli-merge-trees');
 const Funnel = require('broccoli-funnel');
 const Rollup = require('broccoli-rollup');
-const path = require('path');
 const typescript = require('broccoli-typescript-compiler').typescript;
 const buble = require('rollup-plugin-buble');
 const fs = require('fs');
@@ -50,15 +49,16 @@ module.exports = function () {
           loadWithInlineMap(),
           buble()
         ],
-        sourceMap: true,
-        targets: [{
-          dest: 'named-amd/scalar-js.js',
+        output: [{
+          file: 'named-amd/scalar-js.js',
           exports: 'named',
           format: 'amd',
-          moduleId: 'scalar-js',
+          amd: 'scalar-js',
+          sourcemaps: true
         }, {
-          dest: 'scalar-js-amd.js',
+          file: 'scalar-js-amd.js',
           format: 'cjs',
+          sourcemaps: true
         }]
       }
     }),
