@@ -1,92 +1,52 @@
-const MergeTrees = require('broccoli-merge-trees');
-const Funnel = require('broccoli-funnel');
-const Rollup = require('broccoli-rollup');
-const typescript = require('broccoli-typescript-compiler').typescript;
-const buble = require('rollup-plugin-buble');
-const fs = require('fs');
+/* globals module, require */
+'use strict';
 
-const SOURCE_MAPPING_DATA_URL = '//# sourceMap' + 'pingURL=data:application/json;base64,';
+var typescript = require('broccoli-typescript-compiler').typescript;
+var Rollup = require('broccoli-rollup');
+var MergeTrees = require('broccoli-merge-trees');
+var replace = require('broccoli-string-replace');
 
-module.exports = function () {
-  const src = new Funnel(__dirname + '/src', {
-      destDir: 'src'
-  });
-
-  const compiled = typescript(src, {
+module.exports = function() {
+  const es6Tree = typescript('src', {
     tsconfig: {
       compilerOptions: {
+        "noImplicitAny": true,
         "declaration": true,
         "isolatedModules": false,
         "module": "es2015",
-        "target": "es6",
+        "target": "es5",
+        "outDir": "es6",
         "sourceMap": true,
         "moduleResolution": "node"
-      }
-    }
-  });
-
-  const scalarjs = new Rollup(compiled, {
-    rollup: {
-      input: 'src/index.js',
-      output: {
-        sourcemap: true,
-        format: 'es',
-        file: 'es6/scalar-js.js'
       },
-    plugins: [
-        loadWithInlineMap()
+      filesGlob: [
+        "**/*.ts"
       ]
     }
   });
 
-  return new MergeTrees([
-    scalarjs,
-    compiled,
-    new Rollup(compiled, {
-      rollup: {
-        input: 'src/index.js',
-        plugins: [
-          loadWithInlineMap(),
-          buble()
-        ],
-        output: [{
-          file: 'named-amd/scalar-js.js',
-          exports: 'named',
-          format: 'amd',
-          amd: 'scalar-js',
-          sourcemaps: true
-        }, {
-          file: 'scalar-js-amd.js',
-          format: 'cjs',
-          sourcemaps: true
-        }]
+  const umdTree = replace(new Rollup(es6Tree, {
+    annotation: 'umdTree',
+    rollup: {
+      input: 'index.js',
+      external: ['scalar-js'],
+      output: [{
+        file: 'scalar-js.js',
+        format: 'umd',
+        exports: 'named',
+        sourcemap: true,
+        name: 'umd'
+      }]
+    }
+  }), {
+      input: [ 'scalar-js.js' ],
+      pattern: {
+        match: /undefined.__extends/g,
+        replacement: 'false'
       }
-    }),
-  ], {
+  });
+
+  return new MergeTrees([es6Tree, umdTree], {
     annotation: 'dist'
   });
-}
-
-function loadWithInlineMap() {
-  return {
-    load: function (id) {
-      var code = fs.readFileSync(id, 'utf8');
-      var result = {
-        code: code,
-        map: null
-      };
-      var index = code.lastIndexOf(SOURCE_MAPPING_DATA_URL);
-      if (index === -1) {
-        return result;
-      }
-      result.code = code.slice(0, index);
-      result.map = parseSourceMap(code.slice(index + SOURCE_MAPPING_DATA_URL.length));
-      result.file = id;
-      return result;
-    }
-  };
-}
-
-function parseSourceMap(base64) {
-  return JSON.parse(new Buffer(base64, 'base64').toString('utf8'));
-}
+};
