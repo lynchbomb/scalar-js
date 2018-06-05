@@ -30,7 +30,7 @@
     "lint": "tslint --project tsconfig.json"
   },
   "name": "scalar-js",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "2D Vector Library",
   "main": "dist/scalar-js.js",
   "module": "dist/index.js",

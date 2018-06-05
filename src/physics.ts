@@ -15,18 +15,18 @@ export function netForce(forces: Vector[]): Vector {
 
 // a force if a vector that causes an object with mass to accelerate
 // Net Force = Mass * Acceleration\
-export function applyForce(mass: Vector, acc: Vector, force: Vector): Vector {
+export function applyForce(mass: number, acc: Vector, force: Vector): Vector {
   // zero out acceleration between frames
   acc.multi(0);
   // acceleration = net force / mass
-  force.divide(mass.val);
+  force.divide(mass);
   acc.add(force.val);
 
   return acc;
 }
 
-export function applyKinetics(forces: Vector[], velocity: Vector, acc: Vector, maxVelocity?: ICoords | number): Vector {
-  netForce(forces);
+export function applyKinetics(mass: number, acc: Vector, forces: Vector[], velocity: Vector, maxVelocity?: ICoords | number): Vector {
+  applyForce(mass, acc, netForce(forces));
 
   // TL;DR Newtons three laws of Motion
   // 1. an object at rest stays at rest and an object in motion stays in motion
