@@ -13,7 +13,8 @@
         "max-line-length": [false],
         "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
         "no-var-keyword": true,
-        "ordered-imports": false
+        "ordered-imports": false,
+        "prefer-const": false
     },
     "jsRules": {
         "quotemark": [true, "single", "avoid-escape"],

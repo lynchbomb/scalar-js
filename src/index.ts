@@ -1,26 +1,21 @@
 import {
-  applyForce,
-  applyKinetics,
-  createRandomVector,
-  createVectorR2,
-  createVectorR3,
   generateMatrix,
   generateRandomToken,
-  getCoords,
   getDegrees,
   getDistanceBetweenR2Vectors,
   getHeadingDegrees,
   getHeadingRadians,
-  getPrevCoords,
   getRadians,
   getRandomColor,
-  getUnitVectorR2,
   isOutOfBounds,
-  netForce,
   randomIntBetween,
-  resetCoords,
-  strCoordsSet,
 } from './utils';
+
+import {
+  applyForce,
+  applyKinetics,
+  netForce,
+} from './physics';
 
 import {
   ICoords,
@@ -35,30 +30,22 @@ import {
 import Vector from './vector';
 
 export {
+  Vector,
+  IVector,
+  ICoords,
+  IClamped,
+  IBoundary,
   applyForce,
   applyKinetics,
-  createRandomVector,
-  createVectorR2,
-  createVectorR3,
+  netForce,
   generateMatrix,
   generateRandomToken,
-  getCoords,
   getDegrees,
   getDistanceBetweenR2Vectors,
   getHeadingDegrees,
   getHeadingRadians,
-  getPrevCoords,
   getRadians,
   getRandomColor,
-  getUnitVectorR2,
   isOutOfBounds,
-  ICoords,
-  IClamped,
-  IBoundary,
-  IVector,
-  netForce,
-  randomIntBetween,
-  resetCoords,
-  strCoordsSet,
-  Vector
+  randomIntBetween
 };

@@ -14,7 +14,7 @@ module.exports = function() {
         "declaration": true,
         "isolatedModules": false,
         "module": "es2015",
-        "target": "es5",
+        "target": "es2015",
         "outDir": "es6",
         "sourceMap": true,
         "moduleResolution": "node"
