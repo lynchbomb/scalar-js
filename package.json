@@ -27,10 +27,11 @@
     "test": "ember test",
     "test:server": "ember test --server",
     "serve": "ember serve",
-    "lint": "tslint --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json",
+    "prepublishOnly": "npm run build"
   },
   "name": "scalar-js",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "2D Vector Library",
   "main": "dist/scalar-js.js",
   "module": "dist/index.js",
