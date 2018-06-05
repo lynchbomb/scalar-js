@@ -31,7 +31,7 @@
     "prepublishOnly": "npm run build"
   },
   "name": "scalar-js",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "2D Vector Library",
   "main": "dist/scalar-js.js",
   "module": "dist/index.js",
