@@ -11,7 +11,7 @@ export function randomIntBetween(min: number, max: number): number {
 }
 
 export function getRandomColor(): string {
-  return '#' + Math.floor(Math.random() * (9999999 - 0o0)).toString(16);
+  return `# ${Math.floor(Math.random() * (9999999 - 0o0)).toString(16)}`;
 }
 
 export function getHeadingDegrees(coords: ICoords): number {

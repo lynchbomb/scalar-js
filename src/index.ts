@@ -17,6 +17,13 @@ import {
   netForce,
 } from './physics';
 
+import Genetics from './genetics';
+
+import {
+  IGeneticsItem,
+  IGenetics
+} from './interfaces/i-genetics';
+
 import {
   ICoords,
   IClamped,
@@ -35,6 +42,8 @@ export {
   ICoords,
   IClamped,
   IBoundary,
+  IGenetics,
+  IGeneticsItem,
   applyForce,
   applyKinetics,
   netForce,
@@ -47,5 +56,6 @@ export {
   getRadians,
   getRandomColor,
   isOutOfBounds,
-  randomIntBetween
+  randomIntBetween,
+  Genetics
 };

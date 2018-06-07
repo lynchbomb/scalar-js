@@ -17,10 +17,6 @@ export default class Vector implements IVector {
     }
   }
 
-  public get heading(): number {
-    return Math.atan2(this.val.y, this.val.x);
-  }
-
   public rotate(deg: number): this {
     let newHeading = this.heading + deg;
     let mag = this.mag;
@@ -99,6 +95,10 @@ export default class Vector implements IVector {
     }
 
     return this;
+  }
+
+  public get heading(): number {
+    return Math.atan2(this.val.y, this.val.x);
   }
 
   public get mag(): number {
