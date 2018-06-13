@@ -3,7 +3,7 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-rollup": "^2.1.0",
-    "broccoli-typescript-compiler": "^2.3.0",
+    "broccoli-typescript-compiler": "^3.0.1",
     "ember-cli": "^3.1.4",
     "npm": "^6.1.0",
     "rollup-plugin-buble": "^0.19.2",
