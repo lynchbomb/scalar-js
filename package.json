@@ -18,7 +18,7 @@
     "glob": "^7.1.2",
     "loader.js": "^4.7.0",
     "qunitjs": "^2.4.1",
-    "rollup": "^0.59.3"
+    "rollup": "^0.60.7"
   },
   "scripts": {
     "tsc": "tsc -p . && tsc -p src/",
