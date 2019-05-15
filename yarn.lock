@@ -16,9 +16,9 @@
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
 
-"@types/node@*":
-  version "10.1.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.3.tgz#5c16980936c4e3c83ce64e8ed71fb37bd7aea135"
+"@types/node@^12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
 
 "@types/node@^9.6.0":
   version "9.6.18"
@@ -61,6 +61,10 @@ acorn-jsx@^4.1.1:
 acorn@^5.0.0, acorn@^5.0.3, acorn@^5.4.1, acorn@^5.5.3:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
+
+acorn@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
 
 after@0.8.2:
   version "0.8.2"
@@ -5400,12 +5404,13 @@ rollup@^0.57.1:
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
 
-rollup@^0.60.7:
-  version "0.60.7"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.60.7.tgz#2b62ef9306f719b1ab85a7814b3e6596ac51fae8"
+rollup@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.12.0.tgz#3e07e7d178bf61fe12325660a037ae0041219d8c"
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "*"
+    "@types/node" "^12.0.2"
+    acorn "^6.1.1"
 
 rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.3.3, rsvp@^3.5.0:
   version "3.6.2"
