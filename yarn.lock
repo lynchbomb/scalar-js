@@ -16,9 +16,9 @@
   version "0.0.38"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.38.tgz#c1be40aa933723c608820a99a373a16d215a1ca2"
 
-"@types/node@*":
-  version "10.1.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.1.3.tgz#5c16980936c4e3c83ce64e8ed71fb37bd7aea135"
+"@types/node@^12.7.2":
+  version "12.7.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.7.2.tgz#c4e63af5e8823ce9cc3f0b34f7b998c2171f0c44"
 
 "@types/node@^9.6.0":
   version "9.6.18"
@@ -61,6 +61,10 @@ acorn-jsx@^4.1.1:
 acorn@^5.0.0, acorn@^5.0.3, acorn@^5.4.1, acorn@^5.5.3:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.5.3.tgz#f473dd47e0277a08e28e9bec5aeeb04751f0b8c9"
+
+acorn@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.0.0.tgz#26b8d1cd9a9b700350b71c0905546f64d1284e7a"
 
 after@0.8.2:
   version "0.8.2"
@@ -1322,7 +1326,7 @@ compressible@~2.0.13:
 
 compression@^1.4.4:
   version "1.7.2"
-  resolved "http://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
+  resolved "https://registry.npmjs.org/compression/-/compression-1.7.2.tgz#aaffbcd6aaf854b44ebb280353d5ad1651f59a69"
   dependencies:
     accepts "~1.3.4"
     bytes "3.0.0"
@@ -4612,7 +4616,7 @@ once@^1.3.0, once@^1.3.1, once@^1.3.3, once@^1.4.0, once@~1.4.0:
 
 onetime@^1.0.0:
   version "1.1.0"
-  resolved "http://registry.npmjs.org/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
+  resolved "https://registry.npmjs.org/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
 onetime@^2.0.0:
   version "2.0.1"
@@ -5400,12 +5404,13 @@ rollup@^0.57.1:
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
 
-rollup@^0.60.7:
-  version "0.60.7"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.60.7.tgz#2b62ef9306f719b1ab85a7814b3e6596ac51fae8"
+rollup@^1.20.3:
+  version "1.20.3"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.20.3.tgz#6243f6c118ca05f56b2d9433112400cd834a1eb8"
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "*"
+    "@types/node" "^12.7.2"
+    acorn "^7.0.0"
 
 rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.3.3, rsvp@^3.5.0:
   version "3.6.2"
