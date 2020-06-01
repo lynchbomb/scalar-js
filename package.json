@@ -7,7 +7,7 @@
     "broccoli-rollup": "^2.1.1",
     "broccoli-stew": "^1.5.0",
     "broccoli-string-replace": "^0.1.2",
-    "broccoli-typescript-compiler": "^3.0.1",
+    "broccoli-typescript-compiler": "^6.0.0",
     "broccoli-uglify-sourcemap": "^2.2.0",
     "ember-cli": "^3.1.4",
     "ember-cli-inject-live-reload": "1.7.0",
