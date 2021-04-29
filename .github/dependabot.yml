@@ -1,0 +1,20 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: rollup
+    versions:
+    - 2.35.1
+    - 2.38.3
+  - dependency-name: ember-cli
+    versions:
+    - 3.23.0
+    - 3.24.0
+  - dependency-name: typescript
+    versions:
+    - 4.1.3
