@@ -1,6 +1,6 @@
 {
   "name": "scalar-js",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "2D Vector Library",
   "scripts": {
     "build": "tsc -b",
