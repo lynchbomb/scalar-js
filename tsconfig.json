@@ -1,19 +1,21 @@
 {
+  "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
     "moduleResolution": "node",
-    "target": "es2015",
-    "noEmit": true,
-    "baseUrl": ".",
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "module": "es2015",
-    "strictNullChecks": true,
-    "paths": {
-      "scalar": ["src/index.ts"]
-    }
-  },
-  "files": [
-    "src/index.ts",
-    "tests/index.ts"
-  ]
+    "newLine": "LF",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "skipLibCheck": true,
+    "outDir": "dist"
+  }
 }

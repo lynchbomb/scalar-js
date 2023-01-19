@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Vector = exports.Genetics = exports.netForce = exports.applyKinetics = exports.applyForce = exports.randomIntBetween = exports.isOutOfBounds = exports.getRandomColor = exports.getRadians = exports.getHeadingRadians = exports.getHeadingDegrees = exports.getDistanceBetweenR2Vectors = exports.getDegrees = exports.generateRandomToken = exports.generateMatrix = void 0;
+var utils_1 = require("./utils");
+Object.defineProperty(exports, "generateMatrix", { enumerable: true, get: function () { return utils_1.generateMatrix; } });
+Object.defineProperty(exports, "generateRandomToken", { enumerable: true, get: function () { return utils_1.generateRandomToken; } });
+Object.defineProperty(exports, "getDegrees", { enumerable: true, get: function () { return utils_1.getDegrees; } });
+Object.defineProperty(exports, "getDistanceBetweenR2Vectors", { enumerable: true, get: function () { return utils_1.getDistanceBetweenR2Vectors; } });
+Object.defineProperty(exports, "getHeadingDegrees", { enumerable: true, get: function () { return utils_1.getHeadingDegrees; } });
+Object.defineProperty(exports, "getHeadingRadians", { enumerable: true, get: function () { return utils_1.getHeadingRadians; } });
+Object.defineProperty(exports, "getRadians", { enumerable: true, get: function () { return utils_1.getRadians; } });
+Object.defineProperty(exports, "getRandomColor", { enumerable: true, get: function () { return utils_1.getRandomColor; } });
+Object.defineProperty(exports, "isOutOfBounds", { enumerable: true, get: function () { return utils_1.isOutOfBounds; } });
+Object.defineProperty(exports, "randomIntBetween", { enumerable: true, get: function () { return utils_1.randomIntBetween; } });
+var physics_1 = require("./physics");
+Object.defineProperty(exports, "applyForce", { enumerable: true, get: function () { return physics_1.applyForce; } });
+Object.defineProperty(exports, "applyKinetics", { enumerable: true, get: function () { return physics_1.applyKinetics; } });
+Object.defineProperty(exports, "netForce", { enumerable: true, get: function () { return physics_1.netForce; } });
+var genetics_1 = require("./genetics");
+Object.defineProperty(exports, "Genetics", { enumerable: true, get: function () { return genetics_1.Genetics; } });
+var vector_1 = require("./vector");
+Object.defineProperty(exports, "Vector", { enumerable: true, get: function () { return vector_1.Vector; } });
+//# sourceMappingURL=index.js.map

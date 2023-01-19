@@ -1,30 +1,27 @@
-import { IGeneticsItem, IGenetics } from './interfaces/i-genetics';
 import {
-  ICoords
-} from './interfaces/i-coords';
-import {
-  getDistanceBetweenR2Vectors,
-  randomIntBetween
+  getDistanceBetweenR2Vectors
 } from './utils';
+import type { GeneticsItem, IGenetics, Coords } from './types';
 
-export default class Genetics implements IGenetics {
-  public curGeneration: [IGeneticsItem];
-  public preGeneration: [IGeneticsItem];
+export class Genetics implements IGenetics {
+  public curGeneration: [GeneticsItem];
+  public preGeneration: [GeneticsItem];
   public count: number = 0;
 
-  constructor(curGeneration: [IGeneticsItem]) {
-    this.cycleGeneration(curGeneration);
+  constructor(curGeneration: [GeneticsItem]) {
+    this.preGeneration = curGeneration;
+    this.curGeneration = curGeneration;
   }
 
   // bumps the current generation to previous
   // and adds the new generation to current
-  public cycleGeneration(generation: [IGeneticsItem]) {
+  public cycleGeneration(generation: [GeneticsItem]): void {
     this.preGeneration = this.curGeneration;
     this.curGeneration = generation;
   }
 
   // TODO: confirm this math checks out
-  public getScore(vector: ICoords, targetVector: ICoords, originVector: ICoords): number {
+  public getScore(vector: Coords, targetVector: Coords, originVector: Coords): number {
     let _originFromTarget = getDistanceBetweenR2Vectors(originVector, targetVector);
     let _unitFromTarget = getDistanceBetweenR2Vectors(vector, targetVector);
 
@@ -35,9 +32,9 @@ export default class Genetics implements IGenetics {
   // the goal being the highest probablity will go to
   // parents with the highest score all while still
   // allowing generations from lower scoring parents
-  public getProbability(a: [number]): [number] {
+  public getProbability(a: [number]): number[] {
     let sum: number = a.reduce((n1, n2) => n1 + n2);
-    let prob: any = [];
+    let prob: number[] = [];
 
     a.forEach((score) => {
       prob.push(score / sum * 100);

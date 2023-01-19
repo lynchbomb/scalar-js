@@ -1,15 +1,9 @@
-import { IClamped, ICoords } from './interfaces/i-coords';
-import { IVector } from './interfaces/i-vector';
+import type { Coords, IVector } from './types';
 
-export default class Vector implements IVector {
-  public val: ICoords;
+export class Vector implements IVector {
+  public val: Coords;
 
-  private isClamped: IClamped = {
-    x: false,
-    y: false
-  };
-
-  constructor(vector?: ICoords, dimensions: number = 2) {
+  constructor(vector?: Coords, dimensions: number = 2) {
     if (!vector) {
       this.val = dimensions < 3 ? this.createVectorR2() : this.createVectorR3();
     } else {
@@ -26,7 +20,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public update(val: ICoords | number): this {
+  public update(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x = this.val.y = val;
     } else {
@@ -37,7 +31,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public add(val: ICoords | number): this {
+  public add(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x += val;
       this.val.y += val;
@@ -49,7 +43,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public scalar(val: ICoords | number): this {
+  public scalar(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x *= val;
       this.val.y *= val;
@@ -61,7 +55,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public multi(val: ICoords | number): this {
+  public multi(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x *= val;
       this.val.y *= val;
@@ -73,7 +67,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public divide(val: ICoords | number): this {
+  public divide(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x /= val;
       this.val.y /= val;
@@ -85,7 +79,7 @@ export default class Vector implements IVector {
     return this;
   }
 
-  public limit(val: ICoords | number): this {
+  public limit(val: Coords | number): this {
     if (typeof val === 'number') {
       this.val.x = this.val.x > val ? val : this.val.x;
       this.val.y = this.val.y > val ? val : this.val.y;
@@ -113,7 +107,7 @@ export default class Vector implements IVector {
     return Math.sqrt(Math.pow(this.val.x, 2) + Math.pow(this.val.y, 2));
   }
 
-  private createVectorR2(x: number = 0, y: number = 0): ICoords {
+  private createVectorR2(x: number = 0, y: number = 0): Coords {
     return Object.create({x, y});
   }
 

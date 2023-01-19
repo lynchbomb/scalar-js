@@ -1,5 +1,5 @@
-import Vector from './vector';
-import { ICoords } from './interfaces/i-coords';
+import { Vector } from './vector';
+import type { Coords } from './types';
 
 export function netForce(forces: Vector[]): Vector {
   // creates a new zeroed vector
@@ -25,7 +25,7 @@ export function applyForce(mass: number, acc: Vector, force: Vector): Vector {
   return acc;
 }
 
-export function applyKinetics(mass: number, acc: Vector, forces: Vector[], velocity: Vector, maxVelocity?: ICoords | number): Vector {
+export function applyKinetics(mass: number, acc: Vector, forces: Vector[], velocity: Vector, maxVelocity?: Coords | number): Vector {
   applyForce(mass, acc, netForce(forces));
 
   // TL;DR Newtons three laws of Motion

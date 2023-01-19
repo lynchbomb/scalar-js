@@ -1,3 +1,3 @@
-# PRE-ALPHA Scalar-JS
+# WIP Scalar-JS
 
 2D Vector Library.
